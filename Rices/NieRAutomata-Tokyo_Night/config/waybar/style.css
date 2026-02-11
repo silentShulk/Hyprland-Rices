@@ -1,0 +1,147 @@
+/*------------*/
+/*   COLORS   */
+/*------------*/
+
+@define-color white                             #ffffff;
+@define-color black                             #000000;
+@define-color grey                              #1A1B26;
+
+@define-color red                               rgba(255, 0, 0, 1);
+@define-color red-transparent                   rgba(255, 0, 0, 0.25);
+
+@define-color highlight-blue                    rgba(90, 90, 150, 1);
+@define-color highlight-blue-transparent        rgba(90, 90, 150, 0.25);
+
+@define-color highlight-pink                    rgba(255, 68, 153, 1);
+@define-color highlight-pink-transparent        rgba(255, 68, 153, 0.25);
+
+@define-color highlight-green                   rgba(0, 255, 210, 1);
+@define-color highlight-green-transparent       rgba(0, 255, 210, 0.25);
+
+
+* {
+  font-family: "JetBrainsMono Nerd Font Bold";
+  font-size: 15px;
+}
+
+window#waybar {
+  background-color: transparent;
+}
+
+
+
+/* ---------------- */
+/*   LEFT MODULES   */
+/* ---------------- */
+
+#window {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: @highlight-green;
+  background-color: @grey;
+  border: 1px solid @highlight-green;
+  border-radius: 20px;
+}
+
+#mpris {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: @highlight-green;
+  background-color: @grey;
+  border: 1px solid @highlight-green;
+  border-radius: 20px;
+
+}
+
+
+
+/* ------------------ */
+/*   CENTER MODULES   */
+/* ------------------ */
+
+#clock {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: @highlight-pink;
+  background-color: @grey;
+  border: 1px solid @highlight-pink;
+  border-radius: 20px;
+}
+
+#workspaces {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 5px 0px 5px;
+
+  color: @highlight-pink;
+  background-color: @grey;
+  border: 1px solid @highlight-pink;
+  border-radius: 20px;
+}
+#workspaces button {
+  margin: 5px 0px 5px 0px;
+  padding: 0px 0px 0px 0px;
+
+  border: 1px solid @highlight-pink-transparent;
+  border-radius: 20px;
+}
+#workspaces button.active {
+  margin: 5px 0px 5px 0px;
+  padding: 0px 15px 0px 15px;
+
+  background-color: @highlight-pink-transparent;
+  border: 1px solid @highlight-pink;
+  border-radius: 20px;
+}
+#workspaces button.empty {
+  padding: 0px 5px 0px 5px;
+}
+
+
+
+/* ----------------- */
+/*   RIGHT MODULES   */
+/* ----------------- */
+
+#hardware {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: @highlight-blue;
+  background-color: @grey;
+  border: 1px solid @highlight-blue;
+  border-radius: 20px;
+
+}
+
+#pulseaudio {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: @highlight-blue;
+  background-color: @grey;
+  border: 1px solid @highlight-blue;
+  border-radius: 20px;
+}
+
+#network {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: @highlight-blue;
+  background-color: @grey;
+  border: 1px solid @highlight-blue;
+  border-radius: 20px;
+}
+
+#custom-power {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: @red;
+  background-color: @grey;
+  border: 1px solid @red;
+  border-radius: 20px;
+}

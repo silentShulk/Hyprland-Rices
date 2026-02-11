@@ -1,0 +1,10 @@
+/** Basic config file **/
+
+
+configuration {
+  show-icons:         true;
+  icon-theme:         "Papirus";
+}
+
+
+@theme "/home/cmarco/.config/rofi/themes/tokyonight.rasi"

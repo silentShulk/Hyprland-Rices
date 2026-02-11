@@ -1,0 +1,150 @@
+/*****----- Configuration -----*****/
+configuration {
+    modi:                       "drun,run,filebrowser,window";
+    show-icons:                 true;
+    display-drun:               "  ";
+    display-run:                "  ";
+    display-filebrowser:        "  ";
+    display-window:             "  ";
+    drun-display-format:        "{name}";
+    hover-select:               true;
+    me-select-entry:            "MouseSecondary";
+    me-accept-entry:            "MousePrimary";
+}
+
+
+
+/*****----- COLORS -----*****/
+* {
+    phantom-grey:               rgba(93, 94, 96, 1);
+    phantom-grey-transparent:   rgba(93, 94, 96, 0.8);
+    
+    lace-yellow:                rgba(183, 112, 94, 0.8);
+    lace-yellow-transparent:    rgba(183, 112, 94, 0.8);
+
+    blue:                       rgba(7, 18, 48, 1);
+    blue-transparent:           rgba(7, 18, 48, 0.8);
+}
+
+/*****----- Main Window -----*****/
+window {
+    location:                   center;
+    fullscreen:                 false;
+    height:			                55%;
+    width:                      30%;
+
+    margin:                     0px;
+    padding:                    0px;
+    
+    background-color:           @phantom-grey-transparent;
+
+    border:                     2px;
+    border-radius:              10px;
+    border-color:		            @lace-yellow;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    margin:                     10px;
+    background-color:           transparent;
+
+    children:                   [ "inputbar", "message", "listview" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    margin: 			              10px;
+    border-radius:              10px;
+
+    children:                   [ "entry" ];
+}
+
+entry {
+    padding:                    15px;
+
+    background-color:           @blue;
+
+    cursor:                     text;
+
+    placeholder:                "Search (CTRL+TAB change mode)";
+    text-color:                 @phantom-grey;
+}
+
+/*****----- Listview -----*****/
+listview {
+    columns:                     2;
+    lines:                       4;
+    dynamic:                     true;
+    layout:                      vertical;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                transparent;
+    background-color:            transparent;
+    text-color:                  @blue;
+    cursor:                      "default";
+}
+
+
+/*****----- Elements -----*****/
+element {
+    spacing:                     0px;
+    margin:                      0px;
+    padding:                     15px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                transparent;
+    background-color:            transparent;
+    text-color:                  @blue;
+    orientation:                 horizontal;
+    cursor:                      pointer;
+}
+
+element selected.normal {
+	  border-radius:               20px;
+    background-color:            @lace-yellow;
+    text-color:                  @blue;
+}
+element-icon {
+    padding:                     0px;
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        5%;
+    cursor:                      inherit;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    highlight:                   inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+/*****----- Message -----*****/
+message {
+    background-color:            transparent;
+    border:                      0px;
+}
+error-message {
+    padding:                     20px;
+    border:                      2px solid;
+    border-radius:               20px;
+    border-color:                transparent;
+    background-color:            transparent;
+    text-color:                  @blue;
+}
+textbox {
+	  padding:					           10px;    
+    border-radius:               20px;
+    background-color:            transparent;
+    text-color:                  @blue;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    highlight:                   none;
+}

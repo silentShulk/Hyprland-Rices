@@ -1,0 +1,14 @@
+/** Basic config file **/
+
+
+configuration {
+  show-icons:         true;
+  icon-theme:         "Material";
+}
+
+
+//@theme "/home/cmarco/.config/rofi/themes/skongLace.rasi"
+
+//@theme "/home/cmarco/.config/rofi/themes/tokyonight.rasi"
+
+@theme "/home/cmarco/.config/rofi/themes/skongLace.rasi"

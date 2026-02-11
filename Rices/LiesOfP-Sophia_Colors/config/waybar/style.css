@@ -1,0 +1,158 @@
+/*------------*/
+/*   COLORS   */
+/*------------*/
+
+@import 'colors/sophiacolors.css';
+
+
+* {
+  font-family: "JetBrainsMono Nerd Font Bold";
+  font-size: 15px;
+}
+
+window#waybar {
+  background-color: transparent;
+}
+
+/*----------------*/
+/*   SEPARATORS   */
+/*----------------*/
+
+#custom-separator-blank {
+}
+#custom-separator-dash {
+  color: white;
+  background: black;
+}
+#custom-separator-spaceless_dash {
+  color: white;
+  background: black;
+}
+#custom-separator-pipe {
+  padding-bottom: 2px;
+
+  color: white;
+  background: black;
+}
+
+/* ------------------ */
+/*   (LEFT) MODULES   */
+/* ------------------ */
+
+#mpris {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+#clock {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: white;
+  background-color: black;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+#mpris + #clock {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+/* ------------------ */
+/*   CENTER MODULES   */
+/* ------------------ */
+
+
+
+#workspaces {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 5px 0px 5px;
+
+  color: white;
+  background-color: black;
+}
+#workspaces button {
+  margin: 5px 3px 5px 3px;
+  padding: 0px 0px 0px 0px;
+
+  border-radius: 20px;
+}
+#workspaces button.active {
+  margin: 5px 0px 5px 0px;
+  padding: 0px 10px 0px 10px;
+
+  background: linear-gradient(
+    135deg,
+    @sophia-blue 40%,
+    white 
+  );
+  border-radius: 20px;
+}
+#workspaces button.empty {
+  padding: 0px 5px 0px 5px;
+}
+
+
+
+/* ----------------- */
+/*   RIGHT MODULES   */
+/* ----------------- */
+
+#hardware {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: white;
+  background-color: black;
+}
+
+#pulseaudio {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: white;
+  background-color: black;
+}
+#pulseaudio-slider {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 1px 0px 1px;
+
+  background-color: black;
+}
+#pulseaudio-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  
+  color: @sophia-blue;
+}
+#pulseaudio-slider highlight {
+  min-width: 10px;
+
+  color: white;
+  border-radius: 20px;
+}
+
+#pulseaudio-slider trough {
+  min-height: 10px;
+  min-width: 80px;
+
+  color: white;
+  border-radius: 20px;
+}
+
+#custom-power {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+
+  color: @sophia-blue;
+  background-color: black;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}

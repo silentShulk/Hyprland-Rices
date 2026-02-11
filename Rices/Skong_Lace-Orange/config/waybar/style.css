@@ -1,0 +1,240 @@
+/* -- Global rules -- */
+/* Glyphter @font-face (from your CSS file) */
+
+
+
+*{
+  border: none;
+  font-family: "JetbrainsMono Nerd Font", "Glyphter";
+  font-size: 15px;
+}
+
+window#waybar {
+    min-height: 10px;
+
+    /* Transparent gradient background */
+    background: linear-gradient(
+        to top,
+        rgba(2, 3, 24, 0.01) 0%,
+        rgba(2, 3, 24, 0.4) 50%,
+        rgba(2, 3, 24, 0.8) 100%
+    );
+}
+
+
+
+/* ---  MODULES LEFT  --- */
+
+#custom-archicon {
+  background: transparent;
+  font-size: 20px;
+}
+#custom-archicon:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(183, 112, 94, 0.8) 0%,
+    rgba(183, 112, 94, 0.4) 40%,
+    rgba(183, 112, 94, 0.001) 100%
+  );
+
+  border-top: 4px solid rgba(183, 112, 94, 0.5);
+}
+
+#clock {
+  background: transparent;
+  font-size: 16px;
+}
+#clock:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(183, 112, 94, 0.8) 0%,
+    rgba(183, 112, 94, 0.4) 40%,
+    rgba(183, 112, 94, 0.001) 100%
+  );
+
+  border-top: 4px solid rgba(183, 112, 94, 0.5);
+}
+
+#taskbar {
+  background: transparent;
+  border-radius: 10px;
+  padding: 0px 5px;
+  margin: 6px 5px;
+}
+
+#taskbar button {
+  padding: 0px 5px;
+  margin: 0px 3px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+#taskbar button.active {
+  background: rgba(183, 112, 94, 0.5);
+}
+
+#taskbar button:hover {
+  background: rgba(183, 112, 94, 0.5);
+}
+
+#mpris.playing {
+  color: rgba(183, 112, 94, 1);
+}
+
+
+
+/* ---  MODULES CENTER  --- */
+
+#notifications.notification {
+  color: rgba(183, 112, 94, 1);
+}
+#notifications.dnd-notification {
+  color: rgba(183, 112, 94, 1);
+}
+
+#custom-pacman.pending-updates {
+  color: rgba(183, 112, 94, 1);
+}
+
+#workspaces {
+  background: rgba(0, 0, 0, 1);
+  border-radius: 10px;
+  margin: 6px 5px;
+  padding: 0px 6px;
+}
+#workspaces button {
+  color: #B5E8E0;
+  background: transparent;
+  padding: 4px 4px;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+#workspaces button.occupied {
+  color: #b19d9d;
+}
+#workspaces button.active {
+  color: rgba(183, 112, 94, 1);
+  text-shadow: 0 0 4px #ABE9B3;
+}
+#workspaces button:hover {
+  color: rgba(183, 112, 94, 1);
+}
+
+
+
+/* ---  MODULES RIGHT  --- */
+
+
+
+#pulseaudio {
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  padding: 0px 5px 0px 5px;
+
+  color: #ffffff;
+  font-size: 16px;
+
+  border-radius: 16px;
+  border: 1px solid white
+}
+#pulseaudio:hover {
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  background: rgba(183, 112, 94, 0.5);
+}
+
+#pulseaudio-slider {
+  padding: 0px 5px 0px 5px;
+  margin: 5px 0px 5px 0px;
+
+  border-radius: 20px;
+  border: 1px solid white
+}
+#pulseaudio-slider slider {
+  background: rgba(183, 112, 94, 1);
+}
+#pulseaudio-slider trough {
+  min-width: 80px;
+  background: white;
+}
+#pulseaudio-slider highlight {
+  min-height: 10px;
+  background: rgba(183, 112, 94, 1);
+}
+
+#hardware{
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  color: #ffffff;
+  font-size: 16px;
+
+  border-radius: 15px;
+  border: 1px white solid;
+}
+#hardware:hover{
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  background: rgba(183, 112, 94, 0.5);
+}
+
+#cpu{
+  color: #ffffff;
+  font-size: 16px;
+}
+#memory {
+  color: #ffffff;
+  font-size: 16px;
+}
+#disk{
+  color: #ffffff;
+  font-size: 16px;
+}
+
+#network{
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  color: #ffffff;
+  font-size: 16px;
+
+  border-radius: 15px;
+  border: 1px white solid;
+}
+#network:hover{
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  background: rgba(183, 112, 94, 0.5);
+}
+
+#custom-power {
+  color: #ffffff;
+  font-size: 16px
+}
+#custom-power:hover {
+  color: #ffffff;
+  font-size: 16px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0.8) 0%,
+    rgba(255, 0, 0, 0.4) 40%,
+    rgba(255, 0, 0, 0.001) 100%
+  );
+
+  border-top: 4px solid rgba(255, 0, 0, 0.5);
+}
+
+
+
+
+/* === Optional animation === */
+@keyframes blink {
+  to {
+    background-color: #BF616A;
+    color: #B5E8E0;
+  }
+}

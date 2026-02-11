@@ -1,0 +1,158 @@
+{
+  "margin-top": 10,
+  "margin-right": 10,
+  "margin-left": 10,
+
+  "modules-left": [
+    "hyprland/window",
+    "custom/separator-blank",
+    "mpris"
+  ],
+  "modules-center": [
+    "clock",
+    "custom/separator-blank",
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "group/hardware",
+    "custom/separator-blank",
+    "pulseaudio",
+    "custom/separator-blank",
+    "network",
+    "custom/separator-blank",
+    "custom/power"
+  ],
+
+
+
+  /*----------------*/
+  /*   SEPARATORS   */
+  /*----------------*/
+
+  "custom/separator-blank": {
+    "format": "  "
+  },
+  "custom/separator-dash": {
+    "format": " - "
+  },
+  "custom/separator-spaceless_dash": {
+    "format": "-"
+  },
+  "custom/separator-pipe": {
+    "format": " | "
+  }, 
+
+
+
+  /*------------------*/
+  /*   MODULES LEFT   */
+  /*------------------*/
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 20
+  },
+
+  "mpris": {
+	  "format": " {player_icon} {dynamic} ",
+    "max-length": 60,
+	  "format-paused": " {status_icon} <i>{dynamic}</i> "
+  },
+
+
+
+  /*--------------------*/
+  /*   MODULES CENTER   */
+  /*--------------------*/
+
+  "hyprland/workspaces": {
+    "format": " {windows} ",
+    "on-click": "activate",
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": 6
+    },
+    "workspace-taskbar": {
+      "enable": true
+    }
+  },
+
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+
+
+
+  /*-------------------*/
+  /*   MODULES RIGHT   */
+  /*-------------------*/
+
+  "cpu": {
+    "format": " {usage}% ",
+    "tooltip": false
+  },
+  "memory": {
+    "format": " {used}% "
+  },
+  "disk": {
+    "interval": 30,
+    "format": " {percentage_used}% ",
+    "path": "/"
+  },
+  "group/hardware": {
+    "orientation": "inherit",
+    "modules": [
+      "cpu",
+      "custom/separator-dash",
+      "memory",
+      "custom/separator-dash",
+      "disk"
+    ]
+  },
+
+  "network": {
+    "format": "{ifname}",
+
+    "format-wifi": "  {signalStrength}%  {bandwidthDownBytes}",
+    "format-ethernet": "   {bandwidthDownBytes}",
+    "format-disconnected": "Not connected",
+
+    "tooltip-format": "  {ifname} via {gwaddri}",
+    "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
+    "tooltip-format-disconnected": "Disconnected",
+    
+    "max-length": 50,
+    "interval": 1,
+    "on-click": "nm-connection-editor"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+
+  "custom/power": {
+      "format": " ⏻ ",
+      "on-click": "wlogout",
+      "tooltip": true,
+      "tooltip-format": "Logout Menu"
+  }
+}

@@ -1,0 +1,337 @@
+/**
+ * @name tokyo-night-hybrid
+ * @description A dark Discord theme inspired by Tokyo Night VS Code theme.
+ * @author original by refact0r, modified for Tokyo Night
+ * @version 1.0.0
+ * @website https://github.com/ashtrath/Tokyo-Night
+ * @source https://github.com/ashtrath/Tokyo-Night
+ */
+
+/* import theme modules */
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+
+body {
+  /* font options */
+  --font: 'figtree'; /* change to '' for default discord font */
+  --code-font: ''; /* change to '' for default discord font */
+  font-weight: 400; /* normal text font weight. DOES NOT AFFECT BOLD TEXT */
+
+  /* sizes */
+  --gap: 12px; /* spacing between panels */
+  --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+  --border-thickness: 1px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+
+  /* animation/transition options */
+  --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
+  --list-item-transition: 0.2s ease; /* transition for list items */
+  --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+  --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
+
+  /* top bar options */
+  --top-bar-height: var(--gap); /* height of the top bar */
+  --top-bar-button-position: titlebar; /* off: default position, hide: hide buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to channel titlebar (will hide title) */
+  --top-bar-title-position: off; /* off: default centered position, hide: hide title completely, left: left align title (like old discord) */
+  --subtle-top-bar-title: off; /* off: default, on: hide the icon and use subtle text color (like old discord) */
+
+  /* window controls */
+  --custom-window-controls: on; /* off: default window controls, on: custom window controls */
+  --window-control-size: 14px; /* size of custom window controls */
+
+  /* dms button options */
+  --custom-dms-icon: custom; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
+  --dms-icon-svg-url: url('https://upload.wikimedia.org/wikipedia/commons/c/c4/Font_Awesome_5_solid_moon.svg'); /* icon svg url. MUST BE A SVG. */
+  --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
+  --dms-icon-color-before: var(--icon-secondary); /* normal icon color */
+  --dms-icon-color-after: var(
+    --white
+  ); /* icon color when button is hovered/selected */
+  --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
+  --dms-background-image-url: url(''); /* url of the background image */
+  --dms-background-image-size: cover; /* size of the background image (css background-size property) */
+  --dms-background-color: linear-gradient(
+    70deg,
+    var(--blue-2),
+    var(--purple-2),
+    var(--red-2)
+  ); /* fixed color/gradient (css background property) */
+
+  /* background image options */
+  --background-image: off; /* off: no background image, on: enable background image (must set url variable below) */
+  --background-image-url: url(''); /* url of the background image */
+
+  /* transparency/blur options */
+  /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
+  --transparency-tweaks: off; /* off: no changes, on: remove some elements for better transparency */
+  --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+  --panel-blur: off; /* off: no changes, on: blur the background of panels */
+  --blur-amount: 12px; /* amount of blur */
+  --bg-floating: var(
+    --bg-3
+  ); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
+
+  /* chatbar options */
+  --custom-chatbar: aligned; /* off: default chatbar, aligned: chatbar aligned with the user panel, separated: chatbar separated from chat */
+  --chatbar-height: 47px; /* height of the chatbar (52px by default, 47px recommended for aligned, 56px recommended for separated) */
+  --chatbar-padding: 8px; /* padding of the chatbar. only applies in aligned mode. */
+
+  /* other options */
+  --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
+}
+
+/* Tokyo Night colors converted from the VS Code theme */
+:root {
+  --colors: on; /* off: discord default colors, on: custom colors */
+
+  /* text colors */
+  --text-0: var(--bg-4); /* text on colored elements */
+  --text-1: hsl(
+    222,
+    75%,
+    95%
+  ); /* other normally white text - based on c0caf5 */
+  --text-2: hsl(
+    228,
+    31%,
+    70%
+  ); /* headings and important text - based on a9b1d6 */
+  --text-3: hsl(230, 21%, 65%); /* normal text - based on 9aa5ce */
+  --text-4: hsl(
+    234,
+    14%,
+    53%
+  ); /* icon buttons and channels - based on 787c99 */
+  --text-5: hsl(
+    233,
+    14%,
+    40%
+  ); /* muted channels/chats and timestamps - based on 565f89 */
+
+  /* background and dark colors */
+  --bg-1: hsla(
+    235,
+    18%,
+    20%,
+    1
+  ); /* dark buttons when clicked - based on 232433 */
+  --bg-2: hsla(235, 22%, 16%, 1); /* dark buttons - based on 16161e */
+  --bg-3: hsla(
+    235,
+    22%,
+    13%,
+    1
+  ); /* spacing, secondary elements - based on 1a1b26 */
+  --bg-4: hsla(235, 23%, 10%, 1); /* main background color - based on 13131a */
+  --hover: hsla(235, 23%, 25%, 0.1); /* channels and buttons when hovered */
+  --active: hsla(
+    235,
+    23%,
+    27%,
+    0.2
+  ); /* channels and buttons when clicked or selected */
+  --active-2: hsla(
+    235,
+    23%,
+    29%,
+    0.3
+  ); /* extra state for transparent buttons */
+  --message-hover: hsla(235, 23%, 15%, 0.1); /* messages when hovered */
+
+  /* accent colors - based on Tokyo Night VS code theme */
+  --accent-1: var(--blue-1); /* links and other accent text */
+  --accent-2: var(--blue-2); /* small accent elements */
+  --accent-3: var(--blue-3); /* accent buttons */
+  --accent-4: var(--blue-4); /* accent buttons when hovered */
+  --accent-5: var(--blue-5); /* accent buttons when clicked */
+  --accent-new: var(
+    --accent-2
+  ); /* stuff that's normally red like mute/deafen buttons */
+  --mention: linear-gradient(
+    to right,
+    color-mix(in hsl, var(--accent-2), transparent 90%) 40%,
+    transparent
+  ); /* background of messages that mention you */
+  --mention-hover: linear-gradient(
+    to right,
+    color-mix(in hsl, var(--accent-2), transparent 95%) 40%,
+    transparent
+  ); /* background of messages that mention you when hovered */
+  --reply: linear-gradient(
+    to right,
+    color-mix(in hsl, var(--text-3), transparent 90%) 40%,
+    transparent
+  ); /* background of messages that reply to you */
+  --reply-hover: linear-gradient(
+    to right,
+    color-mix(in hsl, var(--text-3), transparent 95%) 40%,
+    transparent
+  ); /* background of messages that reply to you when hovered */
+
+  /* status indicator colors - match VS Code Tokyo Night */
+  --online: var(--green-2); /* based on 73daca */
+  --dnd: var(--red-2); /* based on f7768e */
+  --idle: var(--yellow-2); /* based on e0af68 */
+  --streaming: var(--purple-2); /* based on bb9af7 */
+  --offline: var(--text-4); /* based on 787c99 */
+
+  /* border colors */
+  --border-light: var(--hover); /* general light border color */
+  --border: var(--active); /* general normal border color */
+  --border-hover: var(--active); /* border color of panels when hovered */
+  --button-border: hsl(
+    228,
+    20%,
+    25%,
+    0.1
+  ); /* neutral border color of buttons */
+
+  /* base colors - Tokyo Night color palette */
+  --red-1: hsl(348, 90%, 71%); /* based on f7768e */
+  --red-2: hsl(348, 90%, 66%);
+  --red-3: hsl(348, 90%, 61%);
+  --red-4: hsl(348, 90%, 56%);
+  --red-5: hsl(348, 90%, 51%);
+
+  --green-1: hsl(158, 56%, 65%); /* based on 73daca */
+  --green-2: hsl(158, 56%, 60%);
+  --green-3: hsl(158, 56%, 55%);
+  --green-4: hsl(158, 56%, 50%);
+  --green-5: hsl(158, 56%, 45%);
+
+  --blue-1: hsl(223, 89%, 71%); /* based on 7aa2f7 */
+  --blue-2: hsl(223, 89%, 66%);
+  --blue-3: hsl(223, 89%, 61%);
+  --blue-4: hsl(223, 89%, 56%);
+  --blue-5: hsl(223, 89%, 51%);
+
+  --yellow-1: hsl(35, 70%, 65%); /* based on e0af68 */
+  --yellow-2: hsl(35, 70%, 60%);
+  --yellow-3: hsl(35, 70%, 55%);
+  --yellow-4: hsl(35, 70%, 50%);
+  --yellow-5: hsl(35, 70%, 45%);
+
+  --purple-1: hsl(267, 84%, 71%); /* based on bb9af7 */
+  --purple-2: hsl(267, 84%, 66%);
+  --purple-3: hsl(267, 84%, 61%);
+  --purple-4: hsl(267, 84%, 56%);
+  --purple-5: hsl(267, 84%, 51%);
+
+  /* Extra colors from Tokyo Night VS Code theme */
+  --cyan-1: hsl(191, 97%, 65%); /* based on 7dcfff */
+  --cyan-2: hsl(191, 97%, 60%);
+  --cyan-3: hsl(191, 97%, 55%);
+  --cyan-4: hsl(191, 97%, 50%);
+  --cyan-5: hsl(191, 97%, 45%);
+}
+
+/* Additional Tokyo Night style customizations */
+
+/* Improve readability of code blocks - mimic Tokyo Night code highlighting */
+code,
+pre {
+  background-color: hsla(235, 23%, 8%, 1) !important;
+  border-color: hsla(235, 22%, 16%, 1) !important;
+}
+
+/* Custom scrollbar to match Tokyo Night */
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsla(235, 23%, 25%, 0.3) !important;
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsla(235, 23%, 30%, 0.5) !important;
+}
+
+/* Add a subtle border to panels for Tokyo Night-like separation */
+.container-3w7J-x,
+.panels-j1Uci_,
+.sidebar-2K8pFh,
+.scroller-2LSbBU {
+  border-color: hsla(235, 23%, 15%, 0.8) !important;
+}
+
+/* Button and interactive element highlights using Tokyo Night colors */
+.button-1YfofN:hover,
+.colorable-1bkp8v.primaryDark-3mSFDl:hover {
+  background-color: var(--blue-3) !important;
+}
+
+/* Improved channel list styling */
+.name-23GUGE {
+  color: var(--text-4) !important;
+}
+.name-23GUGE:hover,
+.selected-aXhQR6 .name-23GUGE {
+  color: var(--text-2) !important;
+}
+
+/* Server list styling */
+.wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9,
+.wrapper-1BJsBx:hover .childWrapper-anI2G9 {
+  background-color: var(--blue-2) !important;
+  color: var(--text-1) !important;
+}
+
+/* Typography tweaks for better readability */
+.markup-2BOw-j {
+  line-height: 1.5em !important;
+}
+
+/* Improve highlight colors for mentions and code */
+.mention {
+  background-color: hsla(223, 89%, 66%, 0.3) !important;
+  color: var(--blue-1) !important;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: hsl(233, 14%, 40%) !important; /* Based on 565f89 */
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: var(--red-2) !important;
+}
+
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: var(--yellow-2) !important;
+}
+
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: var(--green-2) !important;
+}
+
+.hljs-title,
+.hljs-section {
+  color: var(--blue-2) !important;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: var(--purple-2) !important;
+}

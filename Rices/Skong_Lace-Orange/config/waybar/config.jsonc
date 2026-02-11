@@ -1,0 +1,268 @@
+{
+  "layer": "top",
+  "position": "top",
+  "autohide": true,
+  "autohide-blocked": false,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+
+
+  /* === Modules Order === */
+  "modules-left": [
+    "group/system",
+    "clock",
+    "custom/separator-blank",
+    "custom/separator-pipe",
+    "mpris"
+  ],
+  "modules-center": [
+    "custom/pacman",
+    "custom/separator-dash",
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "group/audio",
+    "custom/separator-pipe",
+    "group/hardware",
+    "custom/separator-pipe",
+    "network",
+    "custom/separator-pipe#no-right-space",
+    "custom/power"
+  ],
+
+
+
+  /*----------------*/
+  /*   SEPARATORS   */
+  /*----------------*/
+
+  "custom/separator-blank": {
+      "format": " ",
+  },
+
+  "custom/separator-dash": {
+      "format": " - ",
+  },
+
+  "custom/separator-pipe": {
+      "format": " | ",
+  },
+  "custom/separator-pipe#no-right-space": {
+      "format": " |",
+  }, 
+  "custom/separator-pipe#no-left-space": {
+      "format": "| ",
+  },
+
+
+
+  /*------------------*/
+  /*   MODULES LEFT   */
+  /*------------------*/
+
+  "group/system": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 400,
+      "transition-right-to-left": true,
+      "click-to-reveal": true
+    },
+    "modules": [
+      "custom/archicon",
+      "tray",
+      "custom/separator-pipe"
+    ]
+  },
+
+  "custom/archicon": {
+    "format": "   ",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 17,
+    "spacing": 15,
+    "icons": {
+        "blueman": "bluetooth",
+        "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    }
+  },
+
+  "clock": {
+    "timezone": "Europe/Rome",
+    "format": " {:%I:%M - %d/%m} ",
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "mode": "month"
+    },
+  },
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "all-outputs": true,
+    "active-first": false,
+    "tooltip-format": "{name}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "rofi"
+    ]
+  },
+
+  "mpris": {
+  	"format": " {title} ",
+  	"format-paused": " {title} ",
+
+	  "status-icons": {
+      "playing": "<i class=fa-solid fa-play></i>",
+	  	"paused": "⏸"
+	  },
+
+    "max-length": 35,
+
+  	// "ignored-players": ["firefox"]
+  },
+
+
+
+  /*--------------------*/
+  /*   MODULES CENTER   */
+  /*--------------------*/
+
+  "custom/notification": {
+    "id": "notifications",
+    "tooltip": true,
+    "format": "<span size='15pt'> {icon} </span>",
+    "format-icons": {
+      "notification": "<span color='#b7705ed9'> 󱅫 </span>",
+      "none": "󰂜",
+      "dnd-notification": "<span color='#b7705ed9'> 󰂠 </span>",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "<span color='#b7705ed9'> 󰂛 </span>",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "<span color='#b7705ed9'> 󰂛 </span>",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  
+  "custom/pacman": {
+    "format": " {icon}{0} ",
+    "return-type": "json",
+    "format-icons": {
+      "pending-updates": " ",
+      "updated": ""
+    },
+    "on-click": "ghostty -e arch-update",
+    "exec-if": "which waybar-updates",
+    "exec": "waybar-updates"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": " ",
+      "special": "S"
+    },
+    "persistent-workspaces": {
+      "*": 6
+    },
+    "disable-scroll": true,
+    "all-outputs": true,
+    "show-special": true
+  },
+
+
+
+
+  /*-------------------*/
+  /*   MODULES RIGHT   */
+  /*-------------------*/
+
+  "pulseaudio/volume": {
+      "format": " {volume}% {icon} ",
+      "format-bluetooth": "{volume}% {icon}",
+      "format-muted": "",
+      "format-icons": {
+          "default": ["", ""]
+      },
+      "scroll-step": 1,
+     "on-click": "pavucontrol",
+      "ignored-sinks": ["Easy Effects Sink"]
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+  },
+
+  "group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 400,
+      "transition-top-to-bottom": false,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "pulseaudio/slider",
+      "custom/separator-blank",
+      "pulseaudio"
+    ]
+  },
+
+  "cpu": {
+    "format": "  {usage}% ",
+    "tooltip": true,
+    "tooltip-format": "{usage}%\nNúcleos: {cores}"
+  },
+  "memory": {
+    "format": " 󰍛 {} % ",
+    "tooltip": true,
+    "tooltip-format": "{used} / {total} ({percentage}%)"
+  },
+  "disk": {
+    "format": "  {percentage_free}% ",
+    "tooltip": true,
+    "tooltip-format": "{free} / {total} ({percentage_free}%)"
+  },
+
+  "group/hardware": {
+      "orientation": "horizontal",
+      "modules": [
+          "cpu",
+          "memory",
+          "disk",
+      ]
+  },
+
+  "network": {
+    "format": " ↓{bandwidthDownBytes} ",
+    "format-ethernet": " 󰈀 - ↓{bandwidthDownBytes} ",
+    "format-disconnected": " ",
+    "tooltip-format": " {ifname} via {gwaddr}",
+    "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Disconnected"
+  },
+
+  "hyprland/language": {
+    "format": "{} ",
+    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
+    "format-es": "ESP",
+    "format-en": "ENG",
+    "format-it": "ITA"
+  },
+
+  "custom/power": {
+      "format": "  ⏻  ",
+      "on-click": "/home/cmarco/.config/hypr/scripts/Wlogout.sh",
+      "tooltip": true,
+      "tooltip-format": "Logout Menu",
+  },
+
+}

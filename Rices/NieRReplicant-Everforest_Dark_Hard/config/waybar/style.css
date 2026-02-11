@@ -1,0 +1,113 @@
+/*------------*/
+/*   COLORS   */
+/*------------*/
+
+@import 'colors/everforest-dark.css';
+
+
+
+* {
+  font-family: "JetBrainsMono Nerd Font Bold";
+  font-size: 15px;
+
+  margin: 1px 1px 1px 1px;
+  padding: 0px 0px 0px 0px;
+
+  border-radius: 7px;
+}
+
+window#waybar {
+  background: linear-gradient(
+    to bottom,
+    @light-grey,
+    @grey
+  );
+
+  border-radius: 10px;
+}
+
+
+
+/* ---------------- */
+/*   LEFT MODULES   */
+/* ---------------- */
+
+#window {
+  color: @green;
+  background-color: @grey;
+  border: 1px solid @grey;
+}
+
+#mpris {
+  color: @green;
+  background-color: @grey;
+  border: 1px solid @grey;
+}
+
+
+
+/* ------------------ */
+/*   CENTER MODULES   */
+/* ------------------ */
+
+#clock {
+  color: @green;
+  background-color: @grey;
+  border: 1px solid @grey;
+}
+
+#workspaces {
+  color: @green;
+  background: linear-gradient(
+    to top,
+    @light-grey,
+    @grey
+  );
+  border: 1px solid @grey;
+}
+#workspaces button {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+
+  border: 1px solid @grey;
+}
+#workspaces button.active {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+
+  background-color: @grey;
+  border: 1px solid @green;
+}
+#workspaces button.empty {
+  padding: 0px 0px 0px 0px;
+}
+
+
+
+/* ----------------- */
+/*   RIGHT MODULES   */
+/* ----------------- */
+
+#hardware {
+  color: @green;
+  background-color: @light-grey;
+  border: 1px solid @grey;
+}
+
+#pulseaudio {
+  color: @green;
+  background-color: @light-grey;
+  border: 1px solid @grey;
+}
+
+#network {
+  color: @green;
+  background-color: @light-grey;
+  border: 1px solid @grey;
+}
+
+#custom-power {
+  color: @red;
+  background-color: @light-grey;
+  border: 1px solid @grey;
+}
