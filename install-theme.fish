@@ -56,6 +56,15 @@ for app_config in $dotfiles
   printf "\tInstalled $app_config config\n"
 end
 
+# Copying wallpaper(s)
+printf "\nCopying wallpaper(s) to ~/Pictures/wallpapers folder"
+
+cd ./wallpapers
+set wallpapers_count (ls -1 | wc -l)
+cp ./* ~/Pictures/wallpapers
+
+printf "Copied $wallpapers_count wallpapers"
+
 
 
 # ------------- #
@@ -63,3 +72,5 @@ end
 # ------------- #
 
 printf "\nIf you want to load the rice you just installed either logout or reload each element (waybar, wallpaper, etc..) manually"
+
+cd ~
