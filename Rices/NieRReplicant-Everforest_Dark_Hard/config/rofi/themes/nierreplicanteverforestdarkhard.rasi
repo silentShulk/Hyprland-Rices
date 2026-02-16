@@ -1,7 +1,4 @@
-/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
-/* KooL Hyprland Rofi Style 7 */
-
-/* original design from: https://github.com/adi1090x/rofi */
+@theme "~/.config/rofi/colors/everforest-dark-hard.rasi"
 
 /*****----- Configuration -----*****/
 configuration {
@@ -17,26 +14,16 @@ configuration {
     me-accept-entry:            "MousePrimary";
 }
 
-/* ---- Load wallust colors ---- */
-@theme "~/.config/rofi/colors/tokyo-night.rasi"
 
 
 /*****----- Global Properties -----*****/
 * {
-    black:                        rgba(0, 0, 0, 1);
-    grey:		                      rgba(26, 27, 38, 1);
+    grey:           rgba(39, 46, 51, 1);
+    light-grey:     rgba(59, 66, 71, 1);
 
-    black-transparent:            rgba(0, 0, 0, 0.5);
-    grey-transparent:		          rgba(26, 27, 38, 0.5);
+    green:          rgba(167, 192, 128, 1);
 
-
-    highlight-blue:               rgba(30, 30, 70, 1);
-    highlight-green:			        rgba(0, 255, 210, 1);
-    highlight-pink:               rgba(215, 30, 100, 1);
-
-    highlight-blue-transparent:   rgba(40, 40, 80, 0.75);
-    highlight-green-transparent:  rgba(0, 255, 210, 0.75);
-    highlight-pink-transparent:   rgba(215, 30, 100, 0.75);
+    red:            rgba(230, 126, 128, 1);
 }
 
 /*****----- Main Window -----*****/
@@ -49,11 +36,11 @@ window {
     margin:                     0px;
     padding:                    0px;
     
-    background-color:           @highlight-blue-transparent;
+    background-color:           @grey;
 
     border:                     2px;
     border-radius:              10px;
-    border-color:		            @highlight-blue;
+    border-color:		            @green;
 }
 
 /*****----- Main Box -----*****/
@@ -75,12 +62,12 @@ inputbar {
 entry {
     padding:                    15px;
 
-    background-color:           @grey;
+    background-color:           @light-grey;
 
     cursor:                     text;
 
     placeholder:                "Search (CTRL+TAB change mode)";
-    text-color:                 @highlight-green;
+    text-color:                 @red;
 }
 
 /*****----- Listview -----*****/
@@ -110,14 +97,15 @@ element {
     border:                      0px solid;
     border-radius:               0px;
     background-color:            transparent;
-    text-color:                  @highlight-green;
+    text-color:                  @green;
     orientation:                 horizontal;
     cursor:                      pointer;
 }
 
 element selected.normal {
 	  border-radius:               20px;
-    background-color:            @highlight-pink-transparent;
+    background-color:            @green;
+    text-color:                  @grey;
 }
 element-icon {
     padding:                     0px;

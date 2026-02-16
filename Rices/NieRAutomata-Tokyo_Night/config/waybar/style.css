@@ -2,22 +2,7 @@
 /*   COLORS   */
 /*------------*/
 
-@define-color white                             #ffffff;
-@define-color black                             #000000;
-@define-color grey                              #1A1B26;
-
-@define-color red                               rgba(255, 0, 0, 1);
-@define-color red-transparent                   rgba(255, 0, 0, 0.25);
-
-@define-color highlight-blue                    rgba(90, 90, 150, 1);
-@define-color highlight-blue-transparent        rgba(90, 90, 150, 0.25);
-
-@define-color highlight-pink                    rgba(255, 68, 153, 1);
-@define-color highlight-pink-transparent        rgba(255, 68, 153, 0.25);
-
-@define-color highlight-green                   rgba(0, 255, 210, 1);
-@define-color highlight-green-transparent       rgba(0, 255, 210, 0.25);
-
+@import 'colors/tokyo-night.css';
 
 * {
   font-family: "JetBrainsMono Nerd Font Bold";
