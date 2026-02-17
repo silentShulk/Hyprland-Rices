@@ -36,7 +36,8 @@ sudo pacman -S \
   swww \
 	waybar \
 	rofi \
-  wlogout
+  wlogout \
+  cava
 
 # Utils
 sudo pacman -S \
