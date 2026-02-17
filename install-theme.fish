@@ -8,6 +8,8 @@
 set script_dir (realpath (dirname (status filename)))
 # Get list of themes from the folders inside the Rices directory
 set themes (path basename $script_dir/Rices/*)
+# Rice elements common to all rices
+set common_dotfiles $script_dir/CommonFolders/*
 
 
 
@@ -49,6 +51,13 @@ for app in $rice_apps
   end
 end
 
+# Copying the common dotfiles in .config
+printf "\nCopying dotfiles common to all rices in .config\n"
+for common_app_config in $common_dotfiles
+  cp -r $common_app_config ~/.config/
+  printf "\tInstalled $common_app_config config\n"
+end
+
 # Copying theme's folders in .config
 printf "\nCopying theme's folders in ~/.config\n"
 for app_config in $dotfiles
@@ -57,13 +66,13 @@ for app_config in $dotfiles
 end
 
 # Copying wallpaper(s)
-printf "\nCopying wallpaper(s) to ~/Pictures/wallpapers folder"
+printf "\nCopying wallpaper(s) to ~/Pictures/wallpapers folder\n"
 
 cd ./wallpapers
 set wallpapers_count (ls -1 | wc -l)
 cp ./* ~/Pictures/wallpapers
 
-printf "Copied $wallpapers_count wallpapers"
+printf "Copied $wallpapers_count wallpapers\n"
 
 
 
