@@ -4,14 +4,12 @@
   "margin-right": 5,
   "margin-left": 5,
 
-  "width": 1,
-
   "position": "left",
 
   "modules-left": [
     "hyprland/window",
     "custom/separator-blank",
-    "mpris"
+    "group/mediaplayer"
   ],
   "modules-center": [
     "clock",
@@ -21,7 +19,7 @@
   "modules-right": [
     "group/hardware",
     "custom/separator-blank",
-    "pulseaudio",
+    "group/audio",
     "custom/separator-blank",
     "custom/separator-blank",
     "custom/power"
@@ -53,15 +51,51 @@
   /*------------------*/
 
   "hyprland/window": {
-    "format": "{initialTitle}",
-    "max-length": 20
+    "format": "",
+    "icon": true
   },
 
-  "mpris": {
-	  "format": "{player_icon} {dynamic}",
-    "max-length": 60,
-	  "format-paused": " {status_icon} <i>{dynamic}</i> "
+  "cava": {
+    "cava_config": "/home/cmarco/.config/cava/cava.conf",
+    "bars": 4,
+    "framerate": 40,
+
+    "autosens": 1,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+
+    "method": "pulse",
+    "source": "auto",
+
+    "stereo": true,
+    "bar_delimiter": 0,
+
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+
+    "actions": {
+      "on-click-right": "mode"
+    }
   },
+  "mpris": {
+	  "format": "{title}",
+	  "format-paused": "{title}",
+
+    "max-length": 25,
+
+    "rotate": 90
+  },
+  "group/mediaplayer": {
+    "orientation": "inherit",
+
+    "modules": [
+      "mpris",
+      "cava"
+    ]
+  },
+
 
 
 
@@ -75,15 +109,13 @@
   },
 
   "hyprland/workspaces": {
-    "format": " {windows} ",
+    "format": "{windows}",
+    "format-window-separator": "",
     "on-click": "activate",
     "sort-by-number": true,
 
     "persistent-workspaces": {
       "*": 6
-    },
-    "workspace-taskbar": {
-      "enable": true
     }
   },
 
@@ -119,8 +151,8 @@
   },
 
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format": "{volume}%",
+    "format-bluetooth": "{icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": "",
     "format-icons": {
@@ -138,28 +170,23 @@
     },
     "on-click": "pavucontrol"
   },
-
-  "network": {
-    "format": "{ifname}",
-
-    "format-wifi": "  {signalStrength}%  {bandwidthDownBytes}",
-    "format-ethernet": "   {bandwidthDownBytes}",
-    "format-disconnected": "Not connected",
-
-    "tooltip-format": "  {ifname} via {gwaddri}",
-    "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
-    "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
-    "tooltip-format-disconnected": "Disconnected",
-    
-    "max-length": 50,
-    "interval": 1,
-    "on-click": "nm-connection-editor"
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "vertical"
+  },
+  "group/audio": {
+    "orientation": "inherit",
+    "modules": [
+      "pulseaudio/slider",
+      "pulseaudio"
+    ]
   },
 
   "custom/power": {
-      "format": " ⏻ ",
-      "on-click": "wlogout",
-      "tooltip": true,
-      "tooltip-format": "Logout Menu"
+    "format": "⏻",
+    "on-click": "wlogout",
+    "tooltip": true,
+    "tooltip-format": "Logout Menu"
   }
 }

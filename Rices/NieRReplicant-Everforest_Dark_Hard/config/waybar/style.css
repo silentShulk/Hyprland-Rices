@@ -7,7 +7,7 @@
 
 
 * {
-  font-family: "JetBrainsMono Nerd Font Bold";
+  font-family: "ITC Benguiat Std";
   font-size: 15px;
 
   margin: 1px 1px 1px 1px;
@@ -33,15 +33,24 @@ window#waybar {
 /* ---------------- */
 
 #window {
+  padding: 10px 0px 10px 10px;
+
   color: @green;
   background-color: @grey;
   border: 1px solid @grey;
+
+  font-size: 1px;
 }
 
+#group-mediaplayer {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
 #mpris {
   color: @green;
-  background-color: @grey;
-  border: 1px solid @grey;
+}
+#cava {
+  color: @red;
 }
 
 
@@ -51,35 +60,40 @@ window#waybar {
 /* ------------------ */
 
 #clock {
+  padding: 8px 0px 0px 0px;
+  font-size: 30px;
+
   color: @green;
   background-color: @grey;
   border: 1px solid @grey;
 }
 
 #workspaces {
-  color: @green;
-  background: linear-gradient(
-    to top,
-    @light-grey,
-    @grey
-  );
-  border: 1px solid @grey;
+  color: transparent;
 }
 #workspaces button {
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
+  margin: 2px 20px 2px 20px;
+  padding: 7px 0px 7px 0px;
 
-  border: 1px solid @grey;
+  background: linear-gradient(
+    180deg,
+    @grey, @light-grey
+  );
+
+  border-radius: 20px;
+
+  transition: all 0.3s ease-in-out;
 }
 #workspaces button.active {
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
+  margin: 0px 20px 0px 20px;
+  padding: 25px 0px 25px 0px;
 
-  background-color: @grey;
-  border: 1px solid @green;
-}
-#workspaces button.empty {
-  padding: 0px 0px 0px 0px;
+  background: linear-gradient(
+    180deg,
+    @red, @green
+  );
+
+  border-radius: 20px;
 }
 
 
@@ -89,25 +103,47 @@ window#waybar {
 /* ----------------- */
 
 #hardware {
+  padding: 4px 0px 0px 0px;
+
   color: @green;
   background-color: @light-grey;
   border: 1px solid @grey;
 }
 
 #pulseaudio {
+  margin: 0px 7px 0px 7px;
+  padding: 8px 0px 8px 0px;
+
   color: @green;
   background-color: @light-grey;
   border: 1px solid @grey;
 }
+#pulseaudio-slider {
+  min-height: 80px;
+}
+#pulseaudio-slider slider {
+  background-color: @grey;
+}
+#pulseaudio-slider trough {
+  padding: 0px 0px 0px 0px;
 
-#network {
-  color: @green;
-  background-color: @light-grey;
-  border: 1px solid @grey;
+  background: @light-grey;
+}
+#pulseaudio-slider highlight {
+  border-radius: 5px;
+  background: linear-gradient(
+    to bottom,
+    @red,
+    @green
+  );
 }
 
 #custom-power {
+  padding: 0px 0px 0px 0px;
+
   color: @red;
   background-color: @light-grey;
   border: 1px solid @grey;
+
+  font-size: 30px;
 }
