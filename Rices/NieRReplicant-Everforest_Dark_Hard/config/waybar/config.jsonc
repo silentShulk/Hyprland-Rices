@@ -21,7 +21,6 @@
     "custom/separator-blank",
     "group/audio",
     "custom/separator-blank",
-    "custom/separator-blank",
     "custom/power"
   ],
 
@@ -32,7 +31,7 @@
   /*----------------*/
 
   "custom/separator-blank": {
-    "format": "  "
+    "format": " "
   },
   "custom/separator-dash": {
     "format": " - "
@@ -52,7 +51,10 @@
 
   "hyprland/window": {
     "format": "",
-    "icon": true
+    "icon": true,
+
+    "tooltip": true,
+    "tooltip-format": "{title}"
   },
 
   "cava": {
@@ -121,23 +123,26 @@
 
 
 
-
-
   /*-------------------*/
   /*   MODULES RIGHT   */
-  /*-------------------*/
+  /*------------------*/
 
   "cpu": {
     "format": "{usage}%",
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "{used}"
   },
   "memory": {
-    "format": "{used}%"
+    "format": "{percentage}%",
+    "tooltip": true,
+    "tooltip-format": "{used} / {total}"
   },
   "disk": {
     "interval": 30,
     "format": "{percentage_used}%",
-    "path": "/"
+    "path": "/",
+    "tooltip": true,
+    "tooltip-format": "{used} / {total}"
   },
   "group/hardware": {
     "orientation": "inherit",
