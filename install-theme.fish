@@ -70,7 +70,8 @@ printf "\nCopying wallpaper(s) to ~/Pictures/wallpapers folder\n"
 
 cd ./wallpapers
 set wallpapers_count (ls -1 | wc -l)
-cp ./* ~/Pictures/wallpapers
+mkdir ~/Pictures/wallpapers/
+cp ./* ~/Pictures/wallpapers/
 
 printf "Copied $wallpapers_count wallpapers\n"
 
