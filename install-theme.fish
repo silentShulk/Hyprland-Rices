@@ -6,10 +6,10 @@
 
 # Parent directory of the script, needed because the script is always in the same folder as the Rices folder (doesn't metter where the user installs the repo)
 set script_dir (realpath (dirname (status filename)))
-# Get list of themes from the folders inside the Rices directory
+# Get list of themes from the names of the folders inside the Rices directory
 set themes (path basename $script_dir/Rices/*)
 # Rice elements common to all rices
-set common_dotfiles $script_dir/CommonFolders/*
+set common_elements $script_dir/CommonElements/*
 
 
 
@@ -18,9 +18,9 @@ set common_dotfiles $script_dir/CommonFolders/*
 # -------- #
 
 # Uses fzf to print the themes names to the console in a cool format 👍
-set answer (printf "%s\n" $themes | fzf --prompt="Select Action: " --height=10% --reverse)
+set answer (printf "%s\n" $themes | fzf --prompt="Select Theme: " --height=10% --reverse)
 
-# Exit if the user cancels fzf 
+# Exit if the user cancels fzf
 if test -z "$answer"
     echo "No theme selected. Exiting..."
     exit 1
