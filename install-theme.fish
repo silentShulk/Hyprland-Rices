@@ -6,10 +6,10 @@
 
 # Parent directory of the script, needed because the script is always in the same folder as the Rices folder (doesn't metter where the user installs the repo)
 set script_dir (realpath (dirname (status filename)))
-# Get list of themes from the names of the folders inside the Rices directory
-set themes (path basename $script_dir/Rices/*)
 # Rice elements common to all rices
 set common_elements $script_dir/CommonElements/*
+# Get list of themes from the names of the folders inside the Rices directory
+set themes (path basename $script_dir/Rices/*)
 
 
 

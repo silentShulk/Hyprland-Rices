@@ -78,11 +78,12 @@ sudo pacman -S \
 
 # Other suff
 sudo pacman -S \
-	nautilus \	# File browser
-	nwg-clipman \	# Clipboard manager
-	nwg-look \	# GTK themer
-	obs-studio \	# Screen recorder
-	kdeconnect   	# Phone-Pc
+	nautilus \	    # File browser
+	nwg-clipman \	  # Clipboard manager
+	nwg-look \	    # GTK themer
+	obs-studio \	  # Screen recorder
+	kdeconnect \   	# Phone-Pc
+  obsidian        # Markdown editor
 
 
 
