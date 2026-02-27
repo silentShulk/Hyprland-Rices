@@ -31,6 +31,7 @@ sudo pacman -S \
 	hyprlock \
 	hyprshot \
   hyprpicker \
+  hyprpolkitagent \
 	xdg-desktop-portal-hyprland \
   swaync \
   swww \
